@@ -1,0 +1,24 @@
+#
+# Configuration template for gofido usage
+#
+
+store:
+    hosts:
+      - cassandra
+    keyspace: gofido
+    consistency: QUORUM
+
+server:
+    listen_interface: 0.0.0.0
+    listen_port: 31415
+    tls:
+        enable: true
+        cert_file: ./certs/cert.pem
+        key_file: ./certs/key.pem
+
+    app_id: https://localhost:31415
+    challenge_ttl: 60s
+    skip_attestation_verify: true
+    static:
+        enable: true
+        directory: static

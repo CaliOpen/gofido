@@ -1,0 +1,30 @@
+version: '2.1'
+volumes:
+  u2f_store:
+    driver: local
+
+services:
+  # Use of scylladb instead of normal cassandra
+  cassandra:
+    image: scylladb/scylla
+    ports:
+      - "9042:9042"
+      - "9160:9160"
+      - "7000:7000"
+    volumes:
+      - u2f_store:/var/lib/scylla
+      - ./schema.cql:/schema.cql
+    entrypoint:
+      - /docker-entrypoint.py
+      - --memory
+      - 512M
+
+  gofido:
+    build:
+      context: ./
+    links:
+      - cassandra:cassandra
+    volumes:
+      - .:/etc/caliopen
+    ports:
+      - "31415:31415"
