@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/CaliOpen/gofido/config"
 	"github.com/CaliOpen/gofido/store"
-	log "github.com/Sirupsen/logrus"
-	"github.com/go-yaml/yaml"
+	log "github.com/sirupsen/logrus"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 )
 
