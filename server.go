@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/CaliOpen/gofido/config"
 	"github.com/CaliOpen/gofido/store"
-	log "github.com/Sirupsen/logrus"
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 	"github.com/tstranex/u2f"
 	"net/http"
 )
